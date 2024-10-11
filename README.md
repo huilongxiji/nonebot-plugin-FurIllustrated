@@ -36,7 +36,9 @@ _✨ 兽云祭官方API插件 ✨_
 <summary>使用 nb-cli 安装（推荐）</summary>
 在 nonebot2 项目的根目录下打开命令行, 输入以下指令即可安装
 
+```
 nb plugin install nonebot-plugin-FurIllustrated
+```
 
 </details>
 
@@ -44,11 +46,15 @@ nb plugin install nonebot-plugin-FurIllustrated
 <summary>使用PIP安装</summary>
 在 nonebot2 项目的插件目录下, 打开命令行, 输入安装命令
 
+```
 pip install nonebot-plugin-FurIllustrated
+```
 
 打开 nonebot2 项目根目录下的 `pyproject.toml` 文件, 在 `[tool.nonebot]` 部分追加写入
 
+```
 plugins = ["nonebot-plugin-FurIllustrated"]
+```
 
 </details>
 
