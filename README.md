@@ -33,7 +33,7 @@ _✨ 兽云祭官方API插件 ✨_
 ## 💿 安装
 
 <details open>
-<summary>使用 nb-cli 安装（推荐）</summary>
+<summary>使用 nb-cli 安装（暂不支持）</summary>
 在 nonebot2 项目的根目录下打开命令行, 输入以下指令即可安装
 
 ```
