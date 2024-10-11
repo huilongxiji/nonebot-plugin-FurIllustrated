@@ -9,10 +9,10 @@ class Config(BaseModel, extra=Extra.ignore):
     # 插件版本号勿动！！！！
     syj_version: Optional[str] = "1.1.0"
 
-    syj_account: Optional[str] = None
+    syj_account: Optional[str] = "furbot"
     '''兽云祭用户名'''
 
-    suj_password: Optional[str] = None
+    suj_password: Optional[str] = "python"
     '''兽云祭账号密码'''
 
     image_token: Optional[str] = None
