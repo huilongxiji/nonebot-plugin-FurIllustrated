@@ -1,0 +1,18 @@
+[project]
+name = "nonebot-plugin-FurIllustrated"
+version = "1.1.0"
+authors = [
+  { name = "huilongxiji", email = "2601515849@qq.com" },
+]
+dependencies = ["nonebot2", "httpx"]
+description = "基于NoneBot2进行适配的毛毛图鉴插件"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[project.urls]
+"Homepage" = "https://github.com/huilongxiji"
+"Bug Tracker" = "https://github.com/huilongxiji/nonebot-plugin-FurIllustrated/issues"
