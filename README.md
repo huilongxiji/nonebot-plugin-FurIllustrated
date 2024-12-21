@@ -6,44 +6,55 @@
 
 <div align="center">
 
-# nonebot-plugin-furrybar
+# nonebot-plugin-FurIllustrated
 
-_✨ furrybar API  对接插件 ✨_
+_✨ 兽云祭官方API插件 ✨_
 
 </a>
-<a href="https://github.com/huilongxiji/nonebot-plugin-furrybar/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/huilongxiji/nonebot-plugin-furrybar.svg" alt="license">
+<a href="https://github.com/Ekac00/nonebot-plugin-RanFurryPic/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Ekac00/nonebot-plugin-RanFurryPic.svg" alt="license">
 </a>
-<a href="https://pypi.python.org/pypi/nonebot-plugin-furrybar">
-    <img src="https://img.shields.io/pypi/v/nonebot-plugin-furrybar.svg" alt="pypi">
+<a href="https://pypi.python.org/pypi/nonebot-plugin-RanFurryPic">
+    <img src="https://img.shields.io/pypi/v/nonebot-plugin-RanFurryPic.svg" alt="pypi">
 </a>
 <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="python">
 
 </div>
 
-基于NoneBot2进行适配的ai对话聊天插件，适合做赛博龙龙……？
+基于NoneBot2进行适配的FURRY图鉴（毛图，插画）插件
 
 ## 📖 介绍
 
-本插件使用标准的<a href="https://openai.xiniushu.com/docs/guides/chat"> openai API格式 </a>进行编写，主要为furrybar api进行服务，同时也兼容了所有openai标准的api，方便用户在更加灵活的选择api。安装之后需要填好相应的全局配置项，以保证该模块的正常运行，具体配置填法请见配置板块。
-本模块作为bot插件，仅接受学习代码结构以及了解openai标准格式的纯本地构建形式。
-若本插件存在bug欢迎各位反馈！！！
+本插件使用官方<a href="https://console-docs.apipost.cn/preview/6bf01cfebd3e5f96/c4e20a5d1a5db86c?target_id=83fb4f89-221c-4196-bb85-4abf73af73af"> API </a>进行编写，集成了随机兽图，名称查询，id查询，图片信息查询等一系列的吸毛功能。安装即用！！
+如果你有兽云祭账号可以按照要求填入配置项来使用涉及账户操作相关功能。
+若本插件存在bug请及时反馈~
 目前只支持 onebotV11 暂时还未上传nonebot商店
 
 ## 💿 安装
+
+<details>
+
+<summary>使用 nb-cli 安装（暂未支持）</summary>
+在 nonebot2 项目的根目录下打开命令行, 输入以下指令即可安装
+
+```
+nb plugin install nonebot-plugin-FurIllustrated
+```
+
+</details>
 
 <details open>
 <summary>使用PIP安装</summary>
 在 nonebot2 项目的插件目录下, 打开命令行, 输入安装命令
 
 ```
-pip install nonebot-plugin-furrybar
+pip install nonebot-plugin-FurIllustrated
 ```
 
 打开 nonebot2 项目根目录下的 `pyproject.toml` 文件, 在 `[tool.nonebot]` 部分追加写入
 
 ```
-plugins = ["nonebot-plugin-furrybar"]
+plugins = ["nonebot-plugin-FurIllustrated"]
 ```
 
 </details>
@@ -53,50 +64,40 @@ plugins = ["nonebot-plugin-furrybar"]
 在 nonebot2 项目的`.env`文件中添加下表中的配置，不填任何配置则自动使用默认账户
 
 ```
-# 这里是设置模块默认状态的，可选True或者False
-Private = True
-# 你的api地址
-api_url = "你获得的api地址"
-# 你的apikey
-api_key = "你获得的token"
-# 你的人格设定
-prompt = "人格设定"
-# 你的对话预设
-yushe = [
-    {"role":"user","content":"戳戳"},
-    {"role":"assistant","content":"干嘛？（歪头）"}
-]
-# 你的模型列表
-furrybar_model_list = ["xxx","xxx"]
-# 你的控制台群号（不填则不发送报错至控制台）
-kongzhitai = 1234567
+# 你的兽云祭账户
+syj_account = 账户
+# 你的兽云祭密码
+suj_password = 密码
+# 令牌模式的token
+image_token = 令牌
+# 你的令牌用户名
+image_token_user = "用户名"
+# 你的令牌密码
+image_token_key = "密码"
 ```
 
 ## 🎉 使用
 
 ### 指令表
 
-|      指令      |       权限       |   是否需要参数   |                说明                |
-| :-------------: | :--------------: | :---------------: | :--------------------------------: |
-|        @        |       群员       |     需要艾特     |        艾特bot直接与ai对话        |
-|       /ai       | 超管/群主/管理员 |  后面带on或者off  |     开启或关闭当前群聊的ai对话     |
-|      /拉黑      |    超级管理员    | 需要携带对方q账号 |            拉黑对应用户            |
-|    /切换模型    |    超级管理员    |  根据id切换模型  | 动态加载模型列表，用来切换当前模型 |
-|  /模型调用数据  |    超级管理员    |      不需要      |   查看ai对话调用次数以及故障次数   |
-|    /登记信息    |      所有人      |      不需要      |       流程式对话登记用户信息       |
-| (开启/关闭)私聊 |     私聊使用     |      不需要      |          开启私聊对话功能          |
+|    指令    | 权限 |   是否需要参数   |            说明            |
+| :--------: | :--: | :---------------: | :-------------------------: |
+|  随机兽图  | 群员 |        否        |      随机获取一张兽图      |
+|    来只    | 群员 | 可用sid或毛毛名字 |     根据名字或id搜图片     |
+|   来只毛   | 群员 |  可空也可带名字  |       根据名字搜毛图       |
+|   来只兽   | 群员 |  可空也可带名字  |      根据名字搜设定图      |
+|   查sid   | 群员 |    需要纯数字    | 根据关键字查询图片的sid列表 |
+|  兽云搜索  | 群员 |    需要纯数字    |      查看此sid图片详情      |
+| 兽云祭信息 | 群员 |        否        |      根据名字搜设定图      |
 
 ## 插件完成度
 
 目前进度:
 
-- [x] 模型切换
-- [x] 黑名单功能
-- [x] 调用记录
-- [x] 个人信息登记（让ai记住你是谁）
-- [x] 本地知识库
-- [ ] bot默认状态设置
-- [ ] 分别查询用户使用热度
-- [ ] 用户对话词云
-- [ ] 自由切换api和key来适配多api情况
+- [x] 随机毛图
+- [x] 指定图片查询
+- [x] 服务状态查询
+- [x] 登录模块（自动登录）
+- [ ] 上传图片
+- [ ] 用户图片管理
 
